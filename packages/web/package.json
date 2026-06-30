@@ -39,7 +39,7 @@
     "cpy-cli": "latest",
     "supertest": "latest",
     "vitest": "latest",
-    "vite": "^8.0.3"
+    "vite": "^8.1.1"
   },
   "publishConfig": {
     "access": "public"
