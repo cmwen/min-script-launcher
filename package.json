@@ -1,18 +1,21 @@
 {
-  "name": "min-node-app-template",
+  "name": "min-script-launcher",
   "version": "0.0.0",
-  "description": "Minimal Node.js app template - monorepo with CLI, Web, and MCP support",
-  "packageManager": "pnpm@10.15.1",
+  "description": "Native CLI/TUI for finding and running agent-generated scripts",
+  "private": true,
+  "packageManager": "bun@1.3.14",
   "engines": {
-    "node": ">=20.19",
-    "pnpm": ">=9"
+    "bun": ">=1.3.14",
+    "node": ">=20.19"
   },
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "pnpm -r build",
-    "test": "pnpm -r test",
+    "build": "bun --filter @min-script-launcher/core build && bun --filter @min-script-launcher/cli build && bun --filter @min-script-launcher/web build && bun --filter @min-script-launcher/mcp build",
+    "build:native": "bun run scripts/build-native.ts",
+    "build:native:current": "bun --filter @min-script-launcher/cli build:native",
+    "test": "bun --filter @min-script-launcher/core test && bun --filter @min-script-launcher/cli test && bun --filter @min-script-launcher/web test && bun --filter @min-script-launcher/mcp test",
     "lint": "biome check --write .",
     "lint:ci": "biome check .",
     "format": "biome format --write .",
@@ -26,18 +29,15 @@
     "vitest": "latest"
   },
   "keywords": [
-    "template",
-    "nodejs",
-    "typescript",
-    "monorepo",
-    "pnpm",
+    "bun",
     "cli",
-    "web",
-    "mcp"
+    "ink",
+    "scripts",
+    "tui"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cmwen/min-node-app-template.git"
+    "url": "git+https://github.com/cmwen/min-script-launcher.git"
   }
 }

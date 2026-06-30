@@ -1,20 +1,24 @@
 {
-  "name": "@template/cli",
+  "name": "@min-script-launcher/cli",
   "version": "0.1.0",
-  "description": "Command-line interface",
+  "description": "Native CLI/TUI for launching agent-generated scripts",
   "keywords": [
     "cli",
-    "command-line"
+    "ink",
+    "script-launcher"
   ],
   "type": "module",
-  "main": "dist/bundled.js",
-  "bin": "dist/bundled.js",
+  "main": "dist/index.js",
+  "bin": {
+    "msl": "dist/index.js",
+    "min-script-launcher": "dist/index.js"
+  },
   "files": [
-    "dist/bundled.js"
+    "dist"
   ],
   "scripts": {
     "build": "tsc -b",
-    "build:bundle": "node scripts/rolldown-bundle.js",
+    "build:native": "bun build ./src/index.ts --compile --outfile ./dist/msl",
     "prepare": "tsc -b",
     "test": "vitest run",
     "lint": "biome check --write src test",
@@ -23,27 +27,25 @@
     "format:check": "biome format src test"
   },
   "dependencies": {
-    "commander": "^15.0.0",
-    "@template/core": "workspace:*",
+    "@min-script-launcher/core": "workspace:*",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "express": "^5.2.1",
-    "preact": "^10.29.2",
+    "commander": "^15.0.0",
+    "ink": "^7.1.0",
+    "react": "^19.2.7",
+    "react-devtools-core": "^7.0.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/express": "latest",
     "@types/node": "latest",
-    "@preact/preset-vite": "^2.10.5",
-    "rolldown": "1.0.0-rc.12",
-    "vitest": "latest",
-    "vite": "^8.0.3"
+    "@types/react": "^19.2.17",
+    "vitest": "latest"
   },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cmwen/min-node-app-template.git",
+    "url": "git+https://github.com/cmwen/min-script-launcher.git",
     "directory": "packages/cli"
   },
   "license": "MIT"

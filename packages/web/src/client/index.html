@@ -3,7 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template Web App</title>
+    <title>min-script-launcher</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f7f7f3;
+        color: #171717;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin: 0 0 16px;
+      }
+
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #b8b8ad;
+        border-radius: 6px;
+        background: white;
+        font: inherit;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0 0;
+      }
+
+      li {
+        display: grid;
+        gap: 6px;
+        border-bottom: 1px solid #ddddcf;
+        padding: 14px 0;
+      }
+
+      code {
+        color: #146152;
+        overflow-wrap: anywhere;
+      }
+
+      small,
+      span {
+        color: #666;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
